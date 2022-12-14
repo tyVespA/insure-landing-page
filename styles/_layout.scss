@@ -29,6 +29,7 @@ header {
         display: none;
       }
 
+      //nav-cta button
       button {
         padding: 10px 25px;
       }
@@ -40,6 +41,7 @@ header {
       font-weight: 700;
     }
 
+    //hamburger button
     button {
       background: none;
       padding: 0;
@@ -48,6 +50,11 @@ header {
 }
 
 //hero section
+
+.hero-image img {
+  width: 100vw;
+  //mq
+}
 
 .hero-background-container {
   position: relative;
@@ -92,25 +99,86 @@ header {
   }
 }
 
+//main section
+
 main {
   text-align: center;
   //mq
 
-  h2 {
-    font-size: 2.3rem;
-    margin-bottom: 70px;
-    position: relative;
+  section {
+    margin-inline: 20px;
+  }
 
-    &::before {      
+  .advantages {
+      h2 {
+      font-size: 2.3rem;
+      margin-bottom: 70px;
+      position: relative;
+
+      &::before {      
+        position: absolute;
+        content: "";
+        width: 150px;
+        height: 1px;
+        top: -30px;
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+        background-color: $neutral-500;
+      }
+    }
+
+    .advantages-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 50px;
+      margin-bottom: 100px;
+      
+      .advantage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 40ch;
+
+        img {
+          margin-bottom: 30px;
+        }
+
+        h3 {
+          margin-bottom: 20px;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .find-out-more {
+    color: white;
+    padding: 70px 50px;
+    background-color: $primary-800;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 150px;
+
+    &::after {
+      content: url(../images/bg-pattern-how-we-work-mobile.svg);
       position: absolute;
-      content: "";
-      width: 150px;
-      height: 1px;
-      top: -30px;
-      left: 0;
+      top: 0;
       right: 0;
-      margin-inline: auto;
-      background-color: $neutral-500;
+    }
+
+    h2 {
+      position: relative;
+      z-index: 1;
+      line-height: 1;
+      font-size: 2rem;
+      margin-bottom: 50px;
+    }
+
+    button {
+      position: relative;
+      z-index: 1;
     }
   }
 }

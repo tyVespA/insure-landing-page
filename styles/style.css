@@ -346,6 +346,10 @@ header nav button {
   padding: 0;
 }
 
+.hero-image img {
+  width: 100vw;
+}
+
 .hero-background-container {
   position: relative;
   padding-bottom: 230px;
@@ -381,12 +385,15 @@ header nav button {
 main {
   text-align: center;
 }
-main h2 {
+main section {
+  margin-inline: 20px;
+}
+main .advantages h2 {
   font-size: 2.3rem;
   margin-bottom: 70px;
   position: relative;
 }
-main h2::before {
+main .advantages h2::before {
   position: absolute;
   content: "";
   width: 150px;
@@ -396,4 +403,49 @@ main h2::before {
   right: 0;
   margin-inline: auto;
   background-color: hsl(273deg, 4%, 51%);
+}
+main .advantages .advantages-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 100px;
+}
+main .advantages .advantages-container .advantage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 40ch;
+}
+main .advantages .advantages-container .advantage img {
+  margin-bottom: 30px;
+}
+main .advantages .advantages-container .advantage h3 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+main .find-out-more {
+  color: white;
+  padding: 70px 50px;
+  background-color: hsl(256deg, 26%, 20%);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 150px;
+}
+main .find-out-more::after {
+  content: url(../images/bg-pattern-how-we-work-mobile.svg);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+main .find-out-more h2 {
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+  font-size: 2rem;
+  margin-bottom: 50px;
+}
+main .find-out-more button {
+  position: relative;
+  z-index: 1;
 }/*# sourceMappingURL=style.css.map */
