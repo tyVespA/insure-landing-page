@@ -1,0 +1,89 @@
+@use "./base";
+
+// nav
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  .hamburger-icon {
+    //hides hamburger icon on large screens
+    @include for-tablet-up {
+      display: none;
+    }
+    border: transparent;
+    background-color: transparent;
+  }
+
+  .nav-desktop {
+    //hide desktop navigation on small screens
+    @include for-phone-only {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: $neutral-500;
+    }
+
+    ul, button {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    button {
+      background: none;
+      padding: 10px 25px;
+    }
+  }
+}
+
+//hero section
+
+.hero-background-container {
+  background-image: url("../images/bg-pattern-intro-right-mobile.svg"), url("../images/bg-pattern-intro-left-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: bottom right, top left;
+  
+  position: relative;
+  z-index: 2;
+}
+
+.hero-text {
+  background-color: $primary-800;
+  color: $neutral-200;
+
+  position: relative;
+  z-index: 1;
+  
+  padding: 70px 20px;
+  text-align: center;
+  //mq
+
+  h1 {
+    line-height: 1;
+    margin-bottom: 15px;
+  }
+
+  p {
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+}
+
+.hero-padding {
+  padding-top: 190px;
+  padding-bottom: 30px;
+  // background-color: $neutral-200;
+
+  hr {
+    width: 30%;
+    margin: 0 auto;
+    border-color: $neutral-500;
+  }
+}
