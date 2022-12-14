@@ -4,6 +4,11 @@
 
 ## Welcome! 👋
 
+Skills: 
+- using pseudo elements for backgrounds and design elements
+
+-labeling buttons with correct aria values for accessibility 
+
 Thanks for checking out this front-end coding challenge.
 
 [Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.

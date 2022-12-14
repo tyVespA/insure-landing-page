@@ -9,17 +9,16 @@ header {
   padding: 20px;
 
   .hamburger-icon {
+    border: transparent;
+    background-color: transparent;
+    
     //hides hamburger icon on large screens
     @include for-tablet-up {
       display: none;
     }
-    border: transparent;
-    background-color: transparent;
   }
 
   nav {
-    //hide desktop navigation on small screens
-
     ul {
       display: flex;
       align-items: center;
@@ -28,6 +27,10 @@ header {
 
       @include for-phone-only {
         display: none;
+      }
+
+      button {
+        padding: 10px 25px;
       }
     }
 
@@ -39,7 +42,7 @@ header {
 
     button {
       background: none;
-      padding: 10px 25px;
+      padding: 0;
     }
   }
 }

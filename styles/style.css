@@ -333,6 +333,9 @@ header nav ul {
     display: none;
   }
 }
+header nav ul button {
+  padding: 10px 25px;
+}
 header nav ul, header nav button {
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -340,7 +343,7 @@ header nav ul, header nav button {
 }
 header nav button {
   background: none;
-  padding: 10px 25px;
+  padding: 0;
 }
 
 .hero-background-container {
