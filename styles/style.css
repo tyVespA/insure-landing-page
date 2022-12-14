@@ -307,73 +307,90 @@ a {
 /*------------------------------------*\
   #MEDIA QUERY MIXINS
 \*------------------------------------*/
-nav {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
 }
-nav .hamburger-icon {
+header .hamburger-icon {
   border: transparent;
   background-color: transparent;
 }
 @media (min-width: 900px) {
-  nav .hamburger-icon {
+  header .hamburger-icon {
     display: none;
   }
 }
-@media (max-width: 899px) {
-  nav .nav-desktop {
-    display: none;
-  }
-}
-nav .nav-desktop ul {
+header nav ul {
   display: flex;
   align-items: center;
   gap: 20px;
   color: hsl(273deg, 4%, 51%);
 }
-nav .nav-desktop ul, nav .nav-desktop button {
+@media (max-width: 899px) {
+  header nav ul {
+    display: none;
+  }
+}
+header nav ul, header nav button {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
 }
-nav .nav-desktop button {
+header nav button {
   background: none;
   padding: 10px 25px;
 }
 
 .hero-background-container {
-  background-image: url("../images/bg-pattern-intro-right-mobile.svg"), url("../images/bg-pattern-intro-left-mobile.svg");
-  background-repeat: no-repeat;
-  background-position: bottom right, top left;
   position: relative;
-  z-index: 2;
+  padding-bottom: 230px;
 }
-
-.hero-text {
+.hero-background-container::before {
+  content: url("../images/bg-pattern-intro-left-mobile.svg");
+  position: absolute;
+  left: 0;
+}
+.hero-background-container::after {
+  content: url("../images/bg-pattern-intro-right-mobile.svg");
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.hero-background-container .hero-text {
   background-color: hsl(256deg, 26%, 20%);
   color: hsl(0deg, 0%, 98%);
-  position: relative;
-  z-index: 1;
-  padding: 70px 20px;
+  padding: 70px 25px;
   text-align: center;
 }
-.hero-text h1 {
+.hero-background-container .hero-text h1 {
+  font-size: 2.7rem;
   line-height: 1;
   margin-bottom: 15px;
+  position: relative;
 }
-.hero-text p {
+.hero-background-container .hero-text p {
   margin-bottom: 25px;
   line-height: 1.5;
 }
 
-.hero-padding {
-  padding-top: 190px;
-  padding-bottom: 30px;
+main {
+  text-align: center;
 }
-.hero-padding hr {
-  width: 30%;
-  margin: 0 auto;
-  border-color: hsl(273deg, 4%, 51%);
+main h2 {
+  font-size: 2.3rem;
+  margin-bottom: 70px;
+  position: relative;
+}
+main h2::before {
+  position: absolute;
+  content: "";
+  width: 150px;
+  height: 1px;
+  top: -30px;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  background-color: hsl(273deg, 4%, 51%);
 }/*# sourceMappingURL=style.css.map */

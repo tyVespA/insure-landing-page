@@ -2,7 +2,7 @@
 
 // nav
 
-nav {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,17 +17,18 @@ nav {
     background-color: transparent;
   }
 
-  .nav-desktop {
+  nav {
     //hide desktop navigation on small screens
-    @include for-phone-only {
-      display: none;
-    }
 
     ul {
       display: flex;
       align-items: center;
       gap: 20px;
       color: $neutral-500;
+
+      @include for-phone-only {
+        display: none;
+      }
     }
 
     ul, button {
@@ -46,44 +47,67 @@ nav {
 //hero section
 
 .hero-background-container {
-  background-image: url("../images/bg-pattern-intro-right-mobile.svg"), url("../images/bg-pattern-intro-left-mobile.svg");
-  background-repeat: no-repeat;
-  background-position: bottom right, top left;
-  
   position: relative;
-  z-index: 2;
+  padding-bottom: 230px;
+  
+  &::before {
+    content: url("../images/bg-pattern-intro-left-mobile.svg");
+    position: absolute;
+    left: 0;
+
+    //mq
+  }
+
+  &::after {
+    content: url("../images/bg-pattern-intro-right-mobile.svg");
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    //mq
+  }
+
+  .hero-text {
+    background-color: $primary-800;
+    color: $neutral-200;
+
+    padding: 70px 25px;
+    text-align: center;
+    //mq
+  
+    h1 {
+      font-size: 2.7rem;
+      line-height: 1;
+      margin-bottom: 15px;
+      position: relative;
+    }
+  
+    p {
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
+  }
 }
 
-.hero-text {
-  background-color: $primary-800;
-  color: $neutral-200;
-
-  position: relative;
-  z-index: 1;
-  
-  padding: 70px 20px;
+main {
   text-align: center;
   //mq
 
-  h1 {
-    line-height: 1;
-    margin-bottom: 15px;
-  }
+  h2 {
+    font-size: 2.3rem;
+    margin-bottom: 70px;
+    position: relative;
 
-  p {
-    margin-bottom: 25px;
-    line-height: 1.5;
-  }
-}
-
-.hero-padding {
-  padding-top: 190px;
-  padding-bottom: 30px;
-  // background-color: $neutral-200;
-
-  hr {
-    width: 30%;
-    margin: 0 auto;
-    border-color: $neutral-500;
+    &::before {      
+      position: absolute;
+      content: "";
+      width: 150px;
+      height: 1px;
+      top: -30px;
+      left: 0;
+      right: 0;
+      margin-inline: auto;
+      background-color: $neutral-500;
+    }
   }
 }
