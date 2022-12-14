@@ -7,6 +7,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  max-width: 1250px;
+  margin-inline: auto;
+
+  @include for-tablet-up {
+    padding-block: 25px;
+  }
 
   .hamburger-icon {
     border: transparent;
@@ -19,26 +25,42 @@ header {
   }
 
   nav {
+
+    ul, button {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
     ul {
+      font-size: 0.9rem;
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 30px;
       color: $neutral-500;
 
       @include for-phone-only {
         display: none;
       }
 
+      li {
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          color: $neutral-900;
+        }
+      }
+
       //nav-cta button
       button {
-        padding: 10px 25px;
-      }
-    }
+        padding: 10px 30px;
+        transition: all 0.3s ease-in-out;
 
-    ul, button {
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 700;
+        &:hover {
+          background-color: $neutral-900;
+          color: $neutral-200;
+        }
+      }
     }
 
     //hamburger button
@@ -51,21 +73,48 @@ header {
 
 //hero section
 
-.hero-image img {
-  width: 100vw;
-  //mq
+.hero-image {
+  background-color: $primary-800;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: url("../images/bg-pattern-intro-left-mobile.svg");
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    bottom: 0;
+    transform: rotate(270deg);
+
+    @include for-tablet-up {
+      content: "";
+    }
+  }
+
+  img {
+    margin-inline: auto;
+
+    @include for-tablet-up {
+      display: none;
+    }
+  }
 }
 
 .hero-background-container {
   position: relative;
   padding-bottom: 230px;
+  overflow: hidden;
   
   &::before {
     content: url("../images/bg-pattern-intro-left-mobile.svg");
     position: absolute;
     left: 0;
+    z-index: 1;
 
-    //mq
+    @include for-tablet-up {
+      content: url("../images/bg-pattern-intro-left-desktop.svg");
+      bottom: 0;
+    }
   }
 
   &::after {
@@ -74,7 +123,10 @@ header {
     bottom: 0;
     right: 0;
 
-    //mq
+    @include for-tablet-up {
+      content: url("../images/bg-pattern-intro-right-desktop.svg");
+      top: 0;
+    }
   }
 
   .hero-text {
@@ -83,19 +135,69 @@ header {
 
     padding: 70px 25px;
     text-align: center;
-    //mq
+
+    max-width: 1250px;
+    margin-inline: auto;
+    position: relative;
+    
+    @include for-tablet-up {
+      background-color: transparent;
+      text-align: start;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding: 0 25px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: -1000px;
+        width: 1000vw;
+        height: 100%;
+        z-index: -10000;
+        background-color: $primary-800;
+      }
+    }
+
+    .hero-text-container {
+      flex-basis: 50%;
+    }
   
     h1 {
       font-size: 2.7rem;
       line-height: 1;
       margin-bottom: 15px;
       position: relative;
+      z-index: 1;
+
+      @include for-tablet-up {
+        font-size: 3.5rem;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: -100px;
+          height: 2px;
+          width: 150px;
+          background-color: $neutral-200;
+        }
+      }
     }
   
     p {
       margin-bottom: 25px;
       line-height: 1.5;
     }
+  }
+
+  //desktop image
+  img {
+    position: relative;
+    top: 100px;
+
+    @include for-phone-only {
+      display: none;
+    }    
   }
 }
 
@@ -109,11 +211,24 @@ main {
     margin-inline: 20px;
   }
 
+  .advantages-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
   .advantages {
+    max-width: 1250px;
+    // margin-inline: auto;
+
       h2 {
       font-size: 2.3rem;
       margin-bottom: 70px;
       position: relative;
+
+      @include for-tablet-up {
+        text-align: start;
+      }
+      
 
       &::before {      
         position: absolute;
@@ -123,7 +238,7 @@ main {
         top: -30px;
         left: 0;
         right: 0;
-        margin-inline: auto;
+        // margin-inline: auto;
         background-color: $neutral-500;
       }
     }
@@ -140,6 +255,11 @@ main {
         flex-direction: column;
         align-items: center;
         max-width: 40ch;
+        
+        @media screen and (min-width: 1257px) {
+          align-items: flex-start;
+          text-align: start;
+        } 
 
         img {
           margin-bottom: 30px;
@@ -153,19 +273,36 @@ main {
     }
   }
 
+  .find-out-more-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
   .find-out-more {
     color: white;
     padding: 70px 50px;
     background-color: $primary-800;
     position: relative;
     overflow: hidden;
+    width: min(calc(100% - 40px), 1250px);
     margin-bottom: 150px;
+
+    @include for-tablet-up {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-inline: 80px;
+    }
 
     &::after {
       content: url(../images/bg-pattern-how-we-work-mobile.svg);
       position: absolute;
       top: 0;
       right: 0;
+
+      @include for-tablet-up {
+        content: url(../images/bg-pattern-how-we-work-desktop.svg);
+      }
     }
 
     h2 {
@@ -173,7 +310,18 @@ main {
       z-index: 1;
       line-height: 1;
       font-size: 2rem;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
+
+      .line-one::after {
+        content: "\a";
+        white-space: pre;
+      }
+
+      @include for-tablet-up {
+        font-size: 2.5rem;
+        text-align: start;
+        margin-bottom: 0;
+      }
     }
 
     button {
@@ -186,21 +334,56 @@ main {
 //footer 
 
 footer {
+  display: flex;
+  justify-content: center;
   padding: 60px 20px;
   background-image: url("../images/bg-pattern-footer-mobile.svg");
+  background-color: $neutral-200;
+  background-size: 100vw;
   background-repeat: no-repeat;
   text-transform: uppercase;
+  font-size: 0.9rem;
   text-align: center;
 
-  //mq
+  @include for-tablet-up {
+    background-image: url("../images/bg-pattern-footer-desktop.svg");
+    background-size: contain;
+  }
+
+  @include for-tablet-up {
+    text-align: start;
+  }
+
+  .footer-container {
+    max-width: 1250px;
+    flex-basis: 100%;
+  }
 
   .footer-heading {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    
+    @include for-tablet-up {
+      flex-direction: row;
+      justify-content: space-between;
+    }
 
-    //mq
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    svg {
+      fill: #837D88;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        fill: $primary-800;
+      }  
+    }
   }
 
   hr {
@@ -213,12 +396,20 @@ footer {
     flex-wrap: wrap;
     font-weight: 700;
     letter-spacing: 1px;
-    // padding-block: ;
+
 
     .footer-links-section {
       flex-basis: 100%;
+      @include for-tablet-up {
+        flex-basis: 25%;
+      }
+
       &:not(:first-child) {
         margin-top: 40px;
+
+        @include for-tablet-up {
+          margin-top: 0;
+        }
       }
 
       p {
@@ -227,6 +418,15 @@ footer {
       }
       li:not(:last-child) {
         margin-bottom: 15px;
+      }
+      a {
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          text-decoration-color: $primary-800;
+        }
       }
     }
   }
