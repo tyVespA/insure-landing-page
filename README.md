@@ -4,7 +4,8 @@
 
 ## Welcome! 👋
 
-Skills: 
+Skills learned: 
+
 - using pseudo elements for backgrounds and design elements
 
 - using pseudo elements to create a line break
@@ -12,6 +13,8 @@ Skills:
 - labeling buttons with correct aria values for accessibility 
 
 - media queries mixins
+
+- :first/last-child and :not(:first/last-child) 
 
 Thanks for checking out this front-end coding challenge.
 
