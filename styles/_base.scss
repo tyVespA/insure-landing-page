@@ -121,11 +121,11 @@ a {
   display: none;
 }
 
-// @include for-phone-only {
-//   .opacity-zero {
-//     opacity: 0.2;
-//   }
-// }
+@include for-phone-only {
+  .opacity-zero {
+    opacity: 0;
+  }
+}
 
 .hide-to-left {
   left: 100vw;
