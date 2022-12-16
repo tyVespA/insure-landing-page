@@ -6,6 +6,7 @@ var ariaExpandedValue = document.querySelector(".hamburger-icon").getAttribute("
 
 hamburgerBtn.addEventListener("click", () => {
   mobileNav.classList.toggle("hide-to-left");
+  mobileNav.classList.toggle("opacity-zero");
   navOpenIcon.classList.toggle("display-none");
   navCloseIcon.classList.toggle("display-none");
 
@@ -14,6 +15,6 @@ hamburgerBtn.addEventListener("click", () => {
   } else {
     ariaExpandedValue = "true"
   }
+  
   document.querySelector(".hamburger-icon").setAttribute("aria-expanded", ariaExpandedValue)
-  mobileNav.classList.toggle("opacity-zero");
 })
