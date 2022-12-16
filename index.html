@@ -12,6 +12,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@400;700&display=swap" rel="stylesheet">
 
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -20,9 +21,10 @@
     <nav>
       <button class="hamburger-icon" aria-expanded="false" aria-labelledby="menuText">
         <span id="menuText" hidden>Navigation toggle</span>
-        <img src="./images/icon-hamburger.svg" alt="hamburger icon">
+        <img src="./images/icon-hamburger.svg" alt="hamburger icon" class="nav-toggle-open">
+        <img src="./images/icon-close.svg" alt="close navigation icon" class="nav-toggle-close display-none">
       </button>
-      <ul>
+      <ul class="nav-toggled hide-to-left">
         <li><a href="#">How we work</a></li>
         <li><a href="#">Blog</a></li>
         <li><a href="#">Account</a></li>

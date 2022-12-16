@@ -55,6 +55,18 @@ p, h1, h2, h3, h4, h5, h6 {
   isolation: isolate;
 }
 
+/*------------------------------------*\
+  #MEDIA QUERY MIXINS
+\*------------------------------------*/
+
+@mixin for-phone-only {
+  @media (max-width: 899px) { @content; }
+}
+
+@mixin for-tablet-up {
+  @media (min-width: 900px) { @content; }
+}
+
 
 
 /*------------------------------------*\
@@ -103,22 +115,18 @@ a {
   color: inherit;
 }
 
-//helper class
+//helper classes
 
 .display-none {
   display: none;
 }
 
+// @include for-phone-only {
+//   .opacity-zero {
+//     opacity: 0.2;
+//   }
+// }
 
-
-/*------------------------------------*\
-  #MEDIA QUERY MIXINS
-\*------------------------------------*/
-
-@mixin for-phone-only {
-  @media (max-width: 899px) { @content; }
-}
-
-@mixin for-tablet-up {
-  @media (min-width: 900px) { @content; }
+.hide-to-left {
+  left: 100vw;
 }
